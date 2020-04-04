@@ -32,4 +32,5 @@ module.exports = writeData = (name, price) => {
       //   console.log(data);
     }
   );
+  return true;
 };
