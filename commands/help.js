@@ -13,7 +13,6 @@ module.exports = {
       (command) => prefix + command.slice(0, command.length - 3)
     );
     let usage = "The following commands can be used: " + commands;
-    console.log(usage);
-    // message.channel.send(usage);
+    message.channel.send(usage);
   },
 };
