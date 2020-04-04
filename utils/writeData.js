@@ -10,7 +10,7 @@ module.exports = writeData = (name, price) => {
   let currentDate = new Date().toDateString();
   price = parseInt(price);
 
-  if (!price) return false;
+  if (!price || price <= 0) return false;
 
   //if date doesn't exist, initialize it as an object.
   if (!data[currentDate]) {
