@@ -9,7 +9,7 @@ module.exports = {
   execute(message, args) {
     let price = parseInt(args[0]);
     if (isNaN(price)) message.channel.send(`${args[0]} is not a number.`);
-    if (!writeData(message.author.username, price)) {
+    if (!writeData(message.author.username.slice(0, 5), price)) {
       message.channel.send(
         "Price has been updated correctly, please use !today to see more information."
       );
