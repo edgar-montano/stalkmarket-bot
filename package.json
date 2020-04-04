@@ -1,0 +1,34 @@
+{
+  "name": "stalkmarket-bot",
+  "version": "1.0.0",
+  "description": "Stalk Market Simulation, Discord Bot interface. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edgar-montano/stalkmarket-bot.git"
+  },
+  "keywords": [
+    "stalkmarket",
+    "stalk",
+    "ac",
+    "animal",
+    "crossing",
+    "bot",
+    "discord.js"
+  ],
+  "author": "edgar-montano",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/edgar-montano/stalkmarket-bot/issues"
+  },
+  "homepage": "https://github.com/edgar-montano/stalkmarket-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.1.1"
+  },
+  "devDependencies": {
+    "jest": "^25.2.7"
+  }
+}
