@@ -17,8 +17,6 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command);
 }
 
-const stalks = {};
-
 client.once("ready", () => {
   console.log("Bot has successfully logged in.");
 });
@@ -38,6 +36,11 @@ client.on("message", (message) => {
 
   //attempt to execute query and execute command.
   const command = client.commands.get(commandName);
+  if (!command.args && args.length) {
+    return message.channel.send(
+      `You didn't provide any arguments, ${message.author.username}`
+    );
+  }
   try {
     command.execute(message, args);
   } catch (error) {
