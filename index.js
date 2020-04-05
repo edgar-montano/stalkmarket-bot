@@ -31,6 +31,9 @@ client.on("message", (message) => {
   let args = msg.slice(prefix.length).split(/ +/);
   const commandName = args.shift().toLowerCase();
 
+  //log commands as they are processed
+  console.log(`${username} ${commandName} ${args}`);
+
   //return if command doesn't exist.
   if (!client.commands.has(commandName)) return;
 
