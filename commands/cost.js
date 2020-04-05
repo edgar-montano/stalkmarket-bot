@@ -2,7 +2,7 @@ const loadCost = require("../utils/loadCost");
 module.exports = {
   name: "cost",
   description: "List all values",
-  args: false,
+  args: true,
   execute(message, args) {
     const data = loadCost();
     console.log(`Data is ${data}`);
