@@ -1,5 +1,6 @@
 const fs = require("fs");
 const data = require("../data/data.json");
+// const cost = require("../data/cost.json");
 /**
  * Attempts to write information to the data.json file.
  * @param {String} name - Name of user to write information about
@@ -34,3 +35,5 @@ module.exports = writeData = (name, price) => {
   );
   return true;
 };
+
+writeData();

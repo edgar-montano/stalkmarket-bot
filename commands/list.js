@@ -5,6 +5,6 @@ module.exports = {
   args: false,
   execute(message, args) {
     const data = loadData();
-    message.channel.send(`\`\`\`${data}\`\`\``);
+    message.channel.send(`\t\t**Sell value of Turnips**\n\`\`\`${data}\`\`\``);
   },
 };

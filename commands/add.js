@@ -1,6 +1,6 @@
 // const data = require("../data/data.json");
 const writeData = require("../utils/writeData");
-// const loadData = require("../utils/loadData");
+const writeCost = require("../utils/writeCost");
 
 module.exports = {
   name: "add",
@@ -9,9 +9,21 @@ module.exports = {
   execute(message, args) {
     let price = parseInt(args[0]);
     if (isNaN(price)) message.channel.send(`${args[0]} is not a number.`);
-    if (writeData(message.author.username.slice(0, 5), price)) {
-      message.channel.send(
-        "Price has been updated correctly, please use !today to see more information."
+    let checkDate = new Date().getDay();
+    //on sundays, do not allow to write to regular data.
+    //you cannot technically sell on sundays, you can only buy.
+    if (checkDate === 0) {
+      writeCost(message.author.username.slice(0, 5), price);
+      return message.channel.send(
+        "Value has been added to cost analysis, please use `!cost` to display "
+      );
+    } else if (writeData(message.author.username.slice(0, 5), price)) {
+      return message.channel.send(
+        "Price has been updated correctly, please use `!today` or `!list` to see more information."
+      );
+    } else {
+      return message.channel.send(
+        "An error has occured attempting to add your value"
       );
     }
   },
