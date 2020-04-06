@@ -1,5 +1,5 @@
 // const data = require("../data/data.json");
-const writeData = require("../utils/writeData");
+const writePrice = require("../utils/writePrice");
 const writeCost = require("../utils/writeCost");
 
 /**
@@ -19,7 +19,7 @@ module.exports = {
       message.reply(
         `${args[0]} is not a valid time of day, please pass in 'am' or 'pm' to denote time of day.`
       );
-
+    //price cannot be a negative value, and must be a number.
     let price = parseInt(args[1]); //price should be second parameter.
     if (isNaN(price) || price <= 0)
       message.channel.send(`${args[1]} is not a valid number.`);
@@ -32,7 +32,9 @@ module.exports = {
       return message.channel.send(
         "Value has been added to cost analysis, please use `!cost` to display "
       );
-    } else if (writeData(message.author.username.slice(0, 5), price)) {
+    } else if (
+      writePrice(message.author.username.slice(0, 5), timeOfDay, price)
+    ) {
       return message.channel.send(
         "Price has been updated correctly, please use `!today` or `!list` to see more information."
       );
