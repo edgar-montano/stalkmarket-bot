@@ -7,6 +7,5 @@ module.exports = {
     const username = message.author.username.slice(0, 5);
     const data = loadWeek(username);
     message.channel.send(data);
-    // message.channel.send(`\t\t**Sell value of Turnips**\n\`\`\`${data}\`\`\``);
   },
 };
