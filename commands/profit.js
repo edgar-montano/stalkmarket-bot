@@ -33,9 +33,9 @@ module.exports = {
         "Purchase price could not be calculated, did you run `!add COST_OF_TURNIP` on Sunday?"
       );
 
-    const totalProfit = Math.floor((todayPrice / purchasePrice) * 100);
+    const totalProfit = Math.floor((todayPrice / purchasePrice) * 10);
     return message.channel.send(
-      `Your total profit if you were to sell is ${totalProfit}%`
+      `Your total profit if you were to sell is ${totalProfit}% if you sell at ${todayPrice} and you purchased at ${purchasePrice}`
     );
   },
 };
