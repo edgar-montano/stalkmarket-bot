@@ -1,4 +1,5 @@
-const data = require("../data/data.json");
+const morning = require("../data/price_am.json");
+const afternoon = require("../data/price_pm.json");
 const cost = require("../data/cost.json");
 const getLastSunday = require("../utils/getLastSunday");
 /**
@@ -15,14 +16,28 @@ module.exports = {
     const dateString = date.toDateString();
     const day = date.getDay();
 
+    // if the current day is sunday, you cannot yield any profit.
     if (day === 0) {
       return message.reply(`Cannot calculate profits on Sundays`);
     }
 
-    const todayPrice = parseInt(data[dateString][username]);
+    //if user hasnt entered any information for today.
+    if (!morning[dateString][username] && !afternoon[dateString][username])
+      return message.reply(
+        "You have not added any values today. Please see `!price` function for more info."
+      );
+
+    let todayPrice = 0;
+    //if the latest value is afternoon, use it as todays price
+    if (afternoon[dateString][username])
+      todayPrice = parseInt(afternoon[dateString][username]);
+    //if its still the morning use that instead
+    else {
+      todayPrice = parseInt(morning[dateString][username]);
+    }
     if (isNaN(todayPrice)) {
       return message.reply(
-        "No price has been added for today.\nFirst `!add PRICE_OF_TURNIP` for the day."
+        "No price has been added for today.\nUse the `!price` command to add a new value for today"
       );
     }
 

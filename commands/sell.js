@@ -8,10 +8,10 @@ const writeCost = require("../utils/writeCost");
  * @param {Number} args[1] - must contain a numeric value greater then 1.
  */
 module.exports = {
-  name: "price",
+  name: "sell",
   args: true,
   description:
-    "Usage: `!price am|pm number`, e.g. `!price am 50`\n Price adds the current retail price value, use either am or pm to denote if the sell price represented is in the morning or afternoon.\n Price cannot be executed on Sundays, since you cannot sell on this day.",
+    "Usage: `!sell am|pm number`, e.g. `!sell am 50`\n Price adds the current retail price value, use either am or pm to denote if the sell price represented is in the morning or afternoon.\n Price cannot be executed on Sundays, since you cannot sell on this day.",
   execute(message, args) {
     //first argument has to be a time of day.
     const timeOfDay = args[0].toLowerCase();

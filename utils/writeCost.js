@@ -5,10 +5,13 @@ const cost = require("../data/cost.json");
  * Attempts to write information to the cost.json file.
  * @param {String} name - Name of user to write information about
  * @param {Number} price - Current days price information.
+ * @param {Date} date - determines what sunday you wish to update to.
  * @return {Boolean} - false if write failed, true otherwise.
  */
-module.exports = writeData = (name, price) => {
-  let currentDate = new Date().toDateString();
+module.exports = writeCost = (name, price, currentDate = null) => {
+  if (currentDate === null) {
+    currentDate = new Date().toDateString();
+  }
   price = parseInt(price);
 
   if (!price || price <= 0) return false;
