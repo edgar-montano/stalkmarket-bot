@@ -7,7 +7,7 @@ const getLastSunday = require("../utils/getLastSunday");
 module.exports = {
   name: "profit",
   description:
-    "Calculates the profit you would make if you were to sell today.",
+    "*Usage: `!profit`\nCalculates the profit you would make if you were to sell today.*",
   args: false,
   execute(message, args) {
     const username = message.author.username.slice(0, 5);

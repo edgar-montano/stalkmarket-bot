@@ -5,7 +5,8 @@ const writeCost = require("../utils/writeCost");
 module.exports = {
   name: "add",
   args: true,
-  description: "Add a new price value for today.",
+  description:
+    "*Usage: `!add NUMBER`\nAdd a new price value for today, if day is Sunday it adds it to cost of turnip analysis. Use `!cost` to see add. \nIf add is executed on any other day, it adds it to main price index. Use `!today` to see add.*",
   execute(message, args) {
     let price = parseInt(args[0]);
     if (isNaN(price)) message.channel.send(`${args[0]} is not a number.`);

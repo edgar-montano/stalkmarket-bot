@@ -1,11 +1,11 @@
 const loadCost = require("../utils/loadCost");
 module.exports = {
   name: "cost",
-  description: "List all values",
+  description:
+    "Usage: `!cost`\nLists the costs of turnips, this is only available on Sunday adds.",
   args: false,
   execute(message, args) {
     const data = loadCost();
-    console.log(`Data is ${data}`);
-    message.channel.send(`\t\t**Cost of Turnips**\n\`\`\`${data}\`\`\``);
+    message.channel.send(data);
   },
 };

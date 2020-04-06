@@ -1,7 +1,8 @@
 const loadData = require("../utils/loadData");
 module.exports = {
   name: "list",
-  description: "List all values",
+  description:
+    "*Usage: `!list`\nList all previous sell values. This functionality doesn't use Discord embed API, so text is formatted differently.*",
   args: false,
   execute(message, args) {
     const data = loadData();
