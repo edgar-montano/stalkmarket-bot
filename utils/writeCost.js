@@ -33,7 +33,6 @@ module.exports = writeCost = (name, price, currentDate = null) => {
         console.error(err);
         return false;
       }
-      //   console.log(cost);
     }
   );
   return true;

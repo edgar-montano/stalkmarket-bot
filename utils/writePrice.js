@@ -24,6 +24,10 @@ module.exports = writePrice = (username, timeOfDay, price) => {
       __dirname + "/../data/price_am.json",
       JSON.stringify(morning),
       (err) => {
+        console.log(
+          `Attempting to write ${username} ${currentDate} ${price} ${morning}`
+        );
+        // console.log(morning);
         if (err) {
           console.error(err);
           return false;
@@ -38,8 +42,12 @@ module.exports = writePrice = (username, timeOfDay, price) => {
     afternoon[currentDate][username] = price;
     fs.writeFile(
       __dirname + "/../data/price_pm.json",
-      JSON.stringify(morning),
+      JSON.stringify(afternoon),
       (err) => {
+        console.log(
+          `Attempting to write ${username} ${currentDate} ${price} ${afternoon}`
+        );
+        // console.log(afternoon);
         if (err) {
           console.error(err);
           return false;

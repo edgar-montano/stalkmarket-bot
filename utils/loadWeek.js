@@ -17,7 +17,7 @@ module.exports = loadWeek = (username) => {
   //error can occur if afternoon is not updated for the day yet.
   let weekDays = Object.keys(morning);
   let totalDays = weekDays.slice(-day).forEach((dayOfWeek) => {
-    if (morning[dayOfWeek][username] && afternoon[dayOfWeek][username]) {
+    if (morning[dayOfWeek][username] || afternoon[dayOfWeek][username]) {
       emedData.addField(
         dayOfWeek,
         "Morning - " +

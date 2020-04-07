@@ -24,7 +24,7 @@ module.exports = {
     //if user hasnt entered any information for today.
     if (!morning[dateString][username] && !afternoon[dateString][username])
       return message.reply(
-        "You have not added any values today. Please see `!price` function for more info."
+        "You have not added any values today. Please see `!sell` function for more info."
       );
 
     let todayPrice = 0;
@@ -37,7 +37,7 @@ module.exports = {
     }
     if (isNaN(todayPrice)) {
       return message.reply(
-        "No price has been added for today.\nUse the `!price` command to add a new value for today"
+        "No price has been added for today.\nUse the `!sell` command to add a new value for today"
       );
     }
 
