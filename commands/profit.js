@@ -28,12 +28,23 @@ module.exports = {
       );
 
     let todayPrice = 0;
+    console.log("Right before the function...");
     //if the latest value is afternoon, use it as todays price
-    if (afternoon[dateString][username])
-      todayPrice = parseInt(afternoon[dateString][username]);
+    if (afternoon.hasOwnProperty(dateString)) {
+      let currentAfternoon = afternoon[dateString];
+      if (currentAfternoon.hasOwnProperty(username))
+        todayPrice = parseInt(afternoon[dateString][username]);
+    }
+
     //if its still the morning use that instead
-    else {
-      todayPrice = parseInt(morning[dateString][username]);
+    else if (morning.hasOwnProperty(dateString)) {
+      let currentMorning = morning[dateString];
+      if (currentMorning.hasOwnProperty(username))
+        todayPrice = parseInt(morning[dateString][username]);
+    } else {
+      return message.reply(
+        "An error has occured, you do not have any values for today. Please see `!sell` for more info"
+      );
     }
     if (isNaN(todayPrice)) {
       return message.reply(
@@ -45,7 +56,7 @@ module.exports = {
     const purchasePrice = parseInt(cost[lastSunday][username]);
     if (isNaN(purchasePrice))
       return message.reply(
-        "Purchase price could not be calculated, did you run `!add COST_OF_TURNIP` on Sunday?"
+        "Purchase price could not be calculated, did you run `!buy COST_OF_TURNIP` on Sunday?"
       );
 
     const totalProfit = Math.floor((todayPrice / purchasePrice) * 100) - 100;

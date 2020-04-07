@@ -26,13 +26,15 @@ module.exports = {
         currentMorning +=
           username + " - " + morning[totalDays[i]][username] + "\n";
       }
-      embedData.addField(totalDays[i] + " Morning", currentMorning, true);
+      if (currentMorning !== "")
+        embedData.addField(totalDays[i] + " Morning", currentMorning, true);
       currentMorning = "";
       for (username in afternoon[totalDays[i]]) {
         currentAfternoon +=
           username + " - " + afternoon[totalDays[i]][username] + "\n";
       }
-      embedData.addField(totalDays[i] + " Afternoon", currentAfternoon, true);
+      if (currentAfternoon !== "")
+        embedData.addField(totalDays[i] + " Afternoon", currentAfternoon, true);
       currentAfternoon = "";
     }
     message.channel.send(embedData);
