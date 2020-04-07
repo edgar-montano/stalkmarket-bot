@@ -17,15 +17,27 @@ module.exports = loadWeek = (username) => {
   //error can occur if afternoon is not updated for the day yet.
   let weekDays = Object.keys(morning);
   let totalDays = weekDays.slice(-day).forEach((dayOfWeek) => {
-    if (morning[dayOfWeek][username] || afternoon[dayOfWeek][username]) {
-      emedData.addField(
-        dayOfWeek,
-        "Morning - " +
-          morning[dayOfWeek][username] +
-          " | Afternoon - " +
-          afternoon[dayOfWeek][username]
-      );
+    let morningValue = "n/a";
+    let afternoonValue = "n/a";
+    //check morning values of the week
+    if (morning.hasOwnProperty(dayOfWeek)) {
+      let currentMorning = morning[dayOfWeek];
+      if (currentMorning.hasOwnProperty(username)) {
+        morningValue = morning[dayOfWeek][username];
+      }
     }
+    //check afternoon values of teh week
+    if (afternoon.hasOwnProperty(dayOfWeek)) {
+      let currentAfternoon = afternoon[dayOfWeek];
+      if (currentAfternoon.hasOwnProperty(username)) {
+        afternoonValue = afternoon[dayOfWeek][username];
+      }
+    }
+
+    emedData.addField(
+      dayOfWeek,
+      "Morning - " + morningValue + " | Afternoon - " + afternoonValue
+    );
   });
   return emedData;
 };
