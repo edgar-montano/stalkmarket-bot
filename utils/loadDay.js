@@ -10,12 +10,20 @@ module.exports = loadMorning = (username, week) => {
   const date = new Date();
   //   const day = date.getDay(); // value from 0 to 6
   const currentDate = date.toDateString();
-  let currentMorning = "undefined";
-  let currentAfternoon = "undefined";
-  if (morning[currentDate][username])
-    currentMorning = morning[currentDate][username];
-  if (afternoon[currentDate][username])
-    currentAfternoon = afternoon[currentDate][username];
+  let currentMorning = "n/a";
+  let currentAfternoon = "n/a";
+  if (morning.hasOwnProperty(currentDate)) {
+    let totalMorning = morning[currentDate];
+    if (totalMorning.hasOwnProperty(username))
+      currentMorning = morning[currentDate][username];
+  }
+
+  if (afternoon.hasOwnProperty(currentDate)) {
+    let totalAfternoon = afternoon[currentDate];
+    if (totalAfternoon.hasOwnProperty(username))
+      currentAfternoon = afternoon[currentDate][username];
+  }
+
   const todayMsg =
     "Morning - " + currentMorning + " | Afternoon - " + currentAfternoon;
   const emedData = new Discord.MessageEmbed()
