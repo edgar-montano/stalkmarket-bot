@@ -17,7 +17,11 @@ module.exports = {
       .setTitle("This week's prices for all users");
     const date = new Date();
     const day = date.getDay();
-    let weekDays = Object.keys(morning);
+
+    let weekDays =
+      Object.keys(morning).length > Object.keys(afternoon)
+        ? Object.keys(morning)
+        : Object.keys(afternoon);
     let totalDays = weekDays.slice(-day);
     let currentMorning = "";
     let currentAfternoon = "";
