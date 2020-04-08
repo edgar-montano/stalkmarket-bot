@@ -19,7 +19,7 @@ module.exports = {
     const day = date.getDay();
 
     let weekDays =
-      Object.keys(morning).length > Object.keys(afternoon)
+      Object.keys(morning).length > Object.keys(afternoon).length
         ? Object.keys(morning)
         : Object.keys(afternoon);
     let totalDays = weekDays.slice(-day);
