@@ -1,27 +1,25 @@
 const Discord = require("discord.js");
 const morning = require("../data/price_am.json");
 const afternoon = require("../data/price_pm.json");
-
+const checkUserEntry = require("../utils/checkUserEntry");
+const checkDay = require("../utils/checkDay");
+const initializeDay = require("../utils/initializeDay");
 /**
  * Attempt to the load the morning values and afternoon values for the day.
  * @param {String} username - the name of user.
  */
-module.exports = loadMorning = (username, week) => {
+module.exports = loadDay = (username, week) => {
   const date = new Date();
   //   const day = date.getDay(); // value from 0 to 6
   const currentDate = date.toDateString();
   let currentMorning = "n/a";
   let currentAfternoon = "n/a";
-  if (morning.hasOwnProperty(currentDate)) {
-    let totalMorning = morning[currentDate];
-    if (totalMorning.hasOwnProperty(username))
-      currentMorning = morning[currentDate][username];
+  if (checkUserEntry(username, "am")) {
+    currentMorning = morning[currentDate][username];
   }
 
-  if (afternoon.hasOwnProperty(currentDate)) {
-    let totalAfternoon = afternoon[currentDate];
-    if (totalAfternoon.hasOwnProperty(username))
-      currentAfternoon = afternoon[currentDate][username];
+  if (checkUserEntry(username, "pm")) {
+    currentAfternoon = afternoon[currentDate][username];
   }
 
   const todayMsg =
