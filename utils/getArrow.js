@@ -5,6 +5,5 @@
  */
 
 module.exports = getArrow = (price) => {
-  console.log(`Price is ${price}`);
   return parseInt(price) > 0 ? " ↑ " : " ↓ ";
 };

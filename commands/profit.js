@@ -2,6 +2,7 @@ const morning = require("../data/price_am.json");
 const afternoon = require("../data/price_pm.json");
 const cost = require("../data/cost.json");
 const getLastSunday = require("../utils/getLastSunday");
+const checkUserEntry = require("../utils/checkUserEntry");
 /**
  * Calculates the potential profit for today.
  */
@@ -22,25 +23,22 @@ module.exports = {
     }
 
     //if user hasnt entered any information for today.
-    if (!morning[dateString][username] && !afternoon[dateString][username])
+    if (!checkUserEntry(username, "am") && !checkUserEntry(username, "pm"))
       return message.reply(
         "You have not added any values today. Please see `!sell` function for more info."
       );
 
     let todayPrice = 0;
-    console.log("Right before the function...");
     //if the latest value is afternoon, use it as todays price
-    if (afternoon.hasOwnProperty(dateString)) {
-      let currentAfternoon = afternoon[dateString];
-      if (currentAfternoon.hasOwnProperty(username))
-        todayPrice = parseInt(afternoon[dateString][username]);
+    if (checkUserEntry(username, "pm")) {
+      todayPrice = parseInt(afternoon[dateString][username]);
+      console.log(
+        `${username} todayPrice: ${todayPrice} ${afternoon[dateString][username]} `
+      );
     }
-
     //if its still the morning use that instead
-    else if (morning.hasOwnProperty(dateString)) {
-      let currentMorning = morning[dateString];
-      if (currentMorning.hasOwnProperty(username))
-        todayPrice = parseInt(morning[dateString][username]);
+    else if (checkUserEntry(username, "am")) {
+      todayPrice = parseInt(morning[dateString][username]);
     } else {
       return message.reply(
         "An error has occured, you do not have any values for today. Please see `!sell` for more info"

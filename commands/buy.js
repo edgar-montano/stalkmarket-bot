@@ -1,5 +1,3 @@
-// const data = require("../data/data.json");
-// const writePrice = require("../utils/writePrice");
 const writeCost = require("../utils/writeCost");
 const getLastSunday = require("../utils/getLastSunday");
 
