@@ -27,7 +27,8 @@
   },
   "homepage": "https://github.com/edgar-montano/stalkmarket-bot#readme",
   "dependencies": {
-    "discord.js": "^12.1.1"
+    "discord.js": "^12.1.1",
+    "puppeteer": "^2.1.1"
   },
   "devDependencies": {
     "jest": "^25.2.7"
