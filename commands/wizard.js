@@ -13,7 +13,7 @@ module.exports = {
 
     const embedData = new Discord.MessageEmbed()
       .setColor("#00FF00")
-      .setTitle("Stalk Market Price Predictation Wizard");
+      .setAuthor("Stalk Market Price Predictation Wizard");
 
     const date = new Date();
     const day = date.getDay();
@@ -55,7 +55,7 @@ module.exports = {
           break;
       }
     });
-    console.log(json);
+    // console.log(json);
 
     (async () => {
       let i = 1;
@@ -85,8 +85,10 @@ module.exports = {
       const data = await page.evaluate(
         () => document.querySelectorAll("p")[2].innerText
       );
-      embedData.addField(recommendation, text);
+      embedData.addField("My recommendation", text);
       embedData.addField("Stalk Marker Wizard Data", data);
+      embedData.setTitle(recommendation);
+      embedData.addField("Data Points", JSON.stringify(json));
       console.log(recommendation, text, data);
       await browser.close();
       message.reply(embedData);
