@@ -1,1 +1,14 @@
-{"Mon Apr 06 2020":{"JakHy":116,"DefNo":50,"Danny":119,"anime":83},"Tue Apr 07 2020":{"JakHy":105,"DefNo":150,"Danny":136},"Wed Apr 08 2020":{"JakHy":125,"anime":66,"DefNo":155,"Danny":166},"Thu Apr 09 2020":{"JakHy":55,"anime":168,"Danny":49,"DefNo":47},"Fri Apr 10 2020":{"JakHy":60,"anime":167,"DefNo":37,"Danny":41}}
+{
+  "Mon Apr 06 2020": { "JakHy": 116, "DefNo": 50, "Danny": 119, "anime": 83 },
+  "Tue Apr 07 2020": { "JakHy": 105, "DefNo": 150, "Danny": 136 },
+  "Wed Apr 08 2020": { "JakHy": 125, "anime": 66, "DefNo": 155, "Danny": 166 },
+  "Thu Apr 09 2020": { "JakHy": 55, "anime": 168, "Danny": 49, "DefNo": 47 },
+  "Fri Apr 10 2020": {
+    "JakHy": 60,
+    "anime": 167,
+    "DefNo": 37,
+    "Danny": 41,
+    "Kazu": 70,
+    "Aleks": 170
+  }
+}
