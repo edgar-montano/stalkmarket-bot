@@ -105,5 +105,4 @@ dist
 
 # config file
 config.json
-# data files 
-data/
+.env
