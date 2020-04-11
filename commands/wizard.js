@@ -75,8 +75,8 @@ module.exports = {
         await page.click(`input[name='${key}']`);
         await page.keyboard.type(json[key].toString());
       }
-      await page.waitFor(500);
       await page.click("input[src='images/getyourrecommendation.gif']");
+      await page.waitFor(500); //load page properly
       const recommendation = await page.evaluate(
         () => document.querySelector("a[name='recommendation']").innerText
       );
