@@ -60,6 +60,7 @@ module.exports = {
     (async () => {
       let i = 1;
       const browser = await puppeteer.launch({
+        args: ["--no-sandbox"],
         headless: true,
       }); // default is true
 
