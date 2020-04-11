@@ -1,5 +1,6 @@
 const fs = require("fs");
-const { prefix } = require("../config.json");
+// const { prefix } = require("../config.json");
+const prefix = process.env.prefix || "!";
 const Discord = require("discord.js");
 module.exports = {
   name: "help",
