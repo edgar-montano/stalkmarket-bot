@@ -5,7 +5,7 @@
  */
 
 module.exports = getUTC = (timeZoneOffset) => {
-  if (!(0 <= parseInt(timeZoneOffset) <= 11)) return false;
+  if (!(-11 <= parseInt(timeZoneOffset) && parseInt(timeZoneOffset) <= 11)) return false;
   const current = new Date();
   const currentTimezone = -current.getTimezoneOffset() / 60; // convert to hours
   const timezoneDifference = timeZoneOffset - currentTimezone;
