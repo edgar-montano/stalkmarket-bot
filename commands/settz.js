@@ -17,6 +17,7 @@ module.exports = {
       return message.reply(
         `The value you entered, ${args[0]}:${utc} is not a number`
       );
-    return message.reply(utc);
+    console.log(utc.toDateString(), utc.toLocaleDateString(), utc.toString());
+    return message.reply(utc.toDateString());
   },
 };
