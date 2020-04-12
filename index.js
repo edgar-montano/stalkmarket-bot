@@ -23,7 +23,7 @@ client.once("ready", () => {
 });
 
 client.on("message", (message) => {
-  const {} = message.author;
+  const { username } = message.author;
   const msg = message.content.toLowerCase();
 
   if (!msg.startsWith(prefix) || message.author.bot) return;
