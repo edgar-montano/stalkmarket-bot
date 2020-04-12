@@ -10,5 +10,5 @@ module.exports = getDate = (username) => {
   const date = timezone.hasOwnProperty(username)
     ? getUTC(timezone[username])
     : new Date();
-  return date.toDateString();
+  return date;
 };
