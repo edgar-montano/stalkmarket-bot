@@ -15,7 +15,7 @@ module.exports = {
     //price cannot be a negative value, and must be a number.
     let price = parseInt(args[0]); //price should be second parameter.
     if (isNaN(price) || price <= 0)
-      message.channel.send(`${args[0]} is not a valid number.`);
+      return message.channel.send(`${args[0]} is not a valid number.`);
 
     // let checkDate = new Date().getDay();
     let checkDate = getDate(username).getDay();

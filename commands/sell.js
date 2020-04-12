@@ -17,13 +17,13 @@ module.exports = {
     //first argument has to be a time of day.
     const timeOfDay = args[0].toLowerCase();
     if (timeOfDay !== "am" && timeOfDay !== "pm")
-      message.reply(
+      return message.reply(
         `${args[0]} is not a valid time of day, please pass in 'am' or 'pm' to denote time of day.`
       );
     //price cannot be a negative value, and must be a number.
     let price = parseInt(args[1]); //price should be second parameter.
     if (isNaN(price) || price <= 0)
-      message.channel.send(`${args[1]} is not a valid number.`);
+      return message.channel.send(`${args[1]} is not a valid number.`);
 
     // let checkDate = new Date().getDay();
     let checkDate = getDate(username).getDay();
