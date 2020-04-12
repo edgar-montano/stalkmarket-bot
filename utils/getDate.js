@@ -7,7 +7,7 @@ const getUTC = require("../utils/getUTC");
  * @return {String} - toDateString of date object
  */
 module.exports = getDate = (username) => {
-  const date = timezone.hasOwnPropety(username)
+  const date = timezone.hasOwnProperty(username)
     ? getUTC(timezone[username])
     : new Date();
   return date.toDateString();
