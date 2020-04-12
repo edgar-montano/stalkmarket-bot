@@ -6,12 +6,10 @@ const getDate = require("../utils/getDate");
 /**
  * Initializes a day by creating an empty object for that day.
  */
-module.exports = initializeDay = (username = null) => {
+module.exports = initializeDay = (username) => {
   //   const date = new Date().toDateString();
-  const date =
-    username !== null
-      ? getDate(username).toDateString()
-      : new Date().toDateString();
+  const userDate = getDate(username);
+  const date = userDate.toDateString();
   if (!checkDay(date, "am")) {
     morning[date] = {};
     fs.writeFile(
