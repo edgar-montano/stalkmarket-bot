@@ -20,7 +20,7 @@ module.exports = {
       );
 
     timezone[username] = args[0];
-    false.writeFile(
+    fs.writeFile(
       __dirname + "/../data/timezone.json",
       JSON.stringify(timezone),
       (err) => {
