@@ -27,7 +27,7 @@ module.exports = initializeDay = (username) => {
   if (!checkDay(date, "pm")) {
     afternoon[date] = {};
     fs.writeFile(
-      __dirname + "/../data/price_am.json",
+      __dirname + "/../data/price_pm.json",
       JSON.stringify(afternoon),
       (err) => {
         if (err) {
