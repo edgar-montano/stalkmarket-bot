@@ -11,7 +11,7 @@ const getDate = require("../utils/getDate");
 module.exports = writeCost = (name, price, currentDate = null) => {
   if (currentDate === null) {
     // currentDate = new Date().toDateString();
-    currentDate = getDate(username).toDateString();
+    currentDate = getDate(name).toDateString();
   }
   price = parseInt(price);
 
