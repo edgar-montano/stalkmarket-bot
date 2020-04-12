@@ -1,6 +1,7 @@
 const fs = require("fs");
 const morning = require("../data/price_am.json");
 const afternoon = require("../data/price_pm.json");
+const getDate = require("../utils/getDate");
 /**
  * Attempts to write information to the proper price JavaScript Object file..
  * @param {String} name - Name of user to write information about
@@ -9,7 +10,7 @@ const afternoon = require("../data/price_pm.json");
  * @return {Boolean} - false if write failed, true otherwise.
  */
 module.exports = writePrice = (username, timeOfDay, price) => {
-  const date = new Date();
+  const date = getDate(username);
   const currentDate = date.toDateString();
   const day = date.getDay();
   if (day === 0) return false;

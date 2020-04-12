@@ -1,7 +1,7 @@
 // const data = require("../data/data.json");
 const writePrice = require("../utils/writePrice");
 const writeCost = require("../utils/writeCost");
-
+const getDate = require("../utils/getDate");
 /**
  * Price stores the current days price into the corresponding JavaScript Object file.
  * @param {String} args[0] - must be a string containing either value 'am' or 'pm'
@@ -24,7 +24,8 @@ module.exports = {
     if (isNaN(price) || price <= 0)
       message.channel.send(`${args[1]} is not a valid number.`);
 
-    let checkDate = new Date().getDay();
+    // let checkDate = new Date().getDay();
+    let checkDate = getDate(username).getDay();
     //on sundays, do not allow to write to regular data.
     //you cannot technically sell on sundays, you can only buy.
     if (checkDate === 0) {

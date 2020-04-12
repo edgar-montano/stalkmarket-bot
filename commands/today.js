@@ -7,7 +7,7 @@ module.exports = {
   args: false,
   execute(message, args) {
     const username = message.author.username.slice(0, 5);
-    initializeDay();
+    initializeDay(username);
     const day = loadPrice(username, false);
     message.channel.send(day);
   },

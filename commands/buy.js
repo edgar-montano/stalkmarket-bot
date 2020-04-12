@@ -1,6 +1,6 @@
 const writeCost = require("../utils/writeCost");
 const getLastSunday = require("../utils/getLastSunday");
-
+const getDate = require("../utils/getDate");
 /**
  * Price stores the current days cost value into the corresponding JavaScript Object file.
  * @param {Number} args[0] - must contain a numeric value greater then 1.
@@ -16,7 +16,8 @@ module.exports = {
     if (isNaN(price) || price <= 0)
       message.channel.send(`${args[0]} is not a valid number.`);
 
-    let checkDate = new Date().getDay();
+    // let checkDate = new Date().getDay();
+    let checkDate = getDate(username).getDay();
     //on sundays, do not allow to write to regular data.
     //you cannot technically sell on sundays, you can only buy.
     if (checkDate === 0) {

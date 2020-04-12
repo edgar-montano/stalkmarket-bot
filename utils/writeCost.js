@@ -1,6 +1,6 @@
 const fs = require("fs");
 const cost = require("../data/cost.json");
-
+const getDate = require("../utils/getDate");
 /**
  * Attempts to write information to the cost.json file.
  * @param {String} name - Name of user to write information about
@@ -10,7 +10,8 @@ const cost = require("../data/cost.json");
  */
 module.exports = writeCost = (name, price, currentDate = null) => {
   if (currentDate === null) {
-    currentDate = new Date().toDateString();
+    // currentDate = new Date().toDateString();
+    currentDate = getDate(username).toDateString();
   }
   price = parseInt(price);
 
