@@ -1,4 +1,5 @@
-const initializeDay = require("../utils/initializeDay");
+// const initializeDay = require("../utils/initializeDay");
+const fs = require("fs");
 const getUTC = require("../utils/getUTC");
 const timezone = require("../data/timezone.json");
 /**
@@ -15,9 +16,29 @@ module.exports = {
     const utc = getUTC(args[0]); //timezoneoffset
     if (utc === false)
       return message.reply(
-        `The value you entered, ${args[0]}:${utc} is not a number`
+        `The value you entered, ${args[0]} is not a valid input for this function. Please make sure you enter a number within the range -11 to 11`
       );
-    console.log(utc.toUTCString(), utc.toString());
-    return message.reply(utc.toUTCString());
+
+    timezone[username] = args[0];
+    false.writeFile(
+      __dirname + "/../data/timezone.json",
+      JSON.stringify(timezone),
+      (err) => {
+        if (err) {
+          console.error(err);
+          return message.reply(`Could not write your timezone to file`);
+        }
+      }
+    );
+    console.log(
+      `${username} written to timezone for ${utc.toString()} for value ${
+        args[0]
+      }`
+    );
+    return message.reply(
+      `Written your timezone value successfully for: UTC-${
+        args[0]
+      } your current UTC time string should now be: ${utc.toString()}`
+    );
   },
 };
