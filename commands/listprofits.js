@@ -15,8 +15,8 @@ module.exports = {
     const embedData = new Discord.MessageEmbed()
       .setColor("#6969ff")
       .setTitle("List of all the profits by percentage.");
-    const username = message.author.username.slice(0, 5);
-    const date = getDate(username);
+    const name = message.author.username.slice(0, 5);
+    const date = getDate(name);
     const day = date.getDay();
 
     let weekDays = Object.keys(morning);

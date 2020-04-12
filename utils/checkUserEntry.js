@@ -9,7 +9,7 @@ const getDate = require("../utils/getDate");
  */
 module.exports = checkUserEntry = (username, timeOfDay) => {
   // const date = new Date().toDateString();
-  const date = getDate(username);
+  const date = getDate(username).toDateString();
   const partOfDay = timeOfDay === "am" ? morning : afternoon;
   if (partOfDay.hasOwnProperty(date)) {
     const keys = partOfDay[date];
