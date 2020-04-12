@@ -10,6 +10,7 @@ module.exports = loadWeek = (username) => {
   const date = getDate(username);
   //can only be a value 0 - 6
   const day = date.getDay();
+  console.log(`Load week ${date} ${day}`);
   const emedData = new Discord.MessageEmbed()
     .setColor("#0099ff")
     .setTitle("This week's prices")
@@ -19,6 +20,7 @@ module.exports = loadWeek = (username) => {
     Object.keys(morning).length > Object.keys(afternoon).length
       ? Object.keys(morning)
       : Object.keys(afternoon);
+  console.log(weekDays);
   let totalDays = weekDays.slice(-day).forEach((dayOfWeek) => {
     let morningValue = "n/a";
     let afternoonValue = "n/a";

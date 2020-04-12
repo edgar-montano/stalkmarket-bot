@@ -18,13 +18,14 @@ module.exports = {
       .setColor("#ff0073")
       .setTitle("This week's prices for all users");
     const date = getDate(name);
-    const day = date.getDay();
+    const day = date.getDay() !== 0 ? date.getDay() : 6;
 
     let weekDays =
       Object.keys(morning).length > Object.keys(afternoon).length
         ? Object.keys(morning)
         : Object.keys(afternoon);
     let totalDays = weekDays.slice(-day);
+    console.log(`total days:${totalDays} weekDays:${weekDays} day:${day}`);
     let currentMorning = "";
     let currentAfternoon = "";
     for (let i = 0; i < totalDays.length; i++) {

@@ -9,6 +9,7 @@ const getDate = require("../utils/getDate");
 module.exports = initializeDay = (username) => {
   //   const date = new Date().toDateString();
   const userDate = getDate(username);
+  if (userDate.getDay() === 0) return false; //do not initialize sundays
   const date = userDate.toDateString();
   if (!checkDay(date, "am")) {
     morning[date] = {};
