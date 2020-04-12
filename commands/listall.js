@@ -18,7 +18,7 @@ module.exports = {
       .setColor("#ff0073")
       .setTitle("This week's prices for all users");
     const date = getDate(name);
-    const day = date.getDay() !== 0 ? date.getDay() : 6;
+    const day = date.getDay() !== 0 ? date.getDay() : 7;
 
     let weekDays =
       Object.keys(morning).length > Object.keys(afternoon).length

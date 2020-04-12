@@ -1,4 +1,5 @@
 const getProfit = require("../utils/getProfit");
+const getDate = require("../utils/getDate");
 module.exports = {
   name: "getprofit",
   description:
@@ -12,7 +13,7 @@ module.exports = {
         `${price} is not a number. Please see !help for more info.`
       );
 
-    const profit = getProfit(username, price);
+    const profit = getProfit(username, price, getDate(username).toDateString());
     if (profit !== false)
       message.reply(
         `Your total profit would be ${profit}% if you sold for that amount.`
