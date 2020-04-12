@@ -12,6 +12,6 @@ module.exports = {
     const lastSunday =
       date.getDay() === 0 ? date.toDateString() : getLastSunday();
     const data = loadCost(lastSunday);
-    message.channel.send(data.setTitle(`Cost of turnips for ${last}`));
+    message.channel.send(data.setTitle(`Cost of turnips for ${lastSunday}`));
   },
 };
