@@ -13,11 +13,11 @@ module.exports = {
     "*Usage: `!listall`\nList all previous sell values for the week.*",
   args: false,
   execute(message, args) {
-    const username = message.author.username.slice(0, 5);
+    const name = message.author.username.slice(0, 5);
     const embedData = new Discord.MessageEmbed()
       .setColor("#ff0073")
       .setTitle("This week's prices for all users");
-    const date = getDate(username);
+    const date = getDate(name);
     const day = date.getDay();
 
     let weekDays =
