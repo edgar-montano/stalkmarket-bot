@@ -2,15 +2,14 @@ const cost = require("../data/cost.json");
 const getLastSunday = require("../utils/getLastSunday");
 const getPrevSunday = require("../utils/getPreviousSunday");
 /**
- * Attempts to calculate the profit.
+ * Attempts to get cost for a specific day
  * @param {String} username - username of profit to get.
- * @param {Number} price - sell price for the item
+ * @param {Date} date - date you want to check for last sunday cost
  * @return {Boolean|Number} - Returns profit or false if profit could not be calculated.
  */
-module.exports = getProfit = (username, price, date) => {
+module.exports = getCostForDay = (username, date) => {
   const thisLastSunday = new Date(getLastSunday());
   const prevSunday = new Date(getPrevSunday());
-  // if(date.getTime() > getLastSunday())
   const sunday =
     new Date(date).getTime() > thisLastSunday.getTime()
       ? thisLastSunday.toDateString()
@@ -18,7 +17,7 @@ module.exports = getProfit = (username, price, date) => {
   if (cost.hasOwnProperty(sunday)) {
     let lastSunday = cost[sunday];
     if (lastSunday.hasOwnProperty(username)) {
-      return Math.floor((price / lastSunday[username]) * 100) - 100;
+      return lastSunday[username];
     }
   }
   return false;
