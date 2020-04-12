@@ -2,6 +2,7 @@ const morning = require("../data/price_am.json");
 const afternoon = require("../data/price_pm.json");
 const cost = require("../data/cost.json");
 const getLastSunday = require("../utils/getLastSunday");
+const getDate = require("../utils/getDate");
 const checkUserEntry = require("../utils/checkUserEntry");
 /**
  * Calculates the potential profit for today.
@@ -13,7 +14,7 @@ module.exports = {
   args: false,
   execute(message, args) {
     const username = message.author.username.slice(0, 5);
-    let date = new Date();
+    let date = getDate(username);
     const dateString = date.toDateString();
     const day = date.getDay();
 

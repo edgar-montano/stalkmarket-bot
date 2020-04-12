@@ -1,13 +1,13 @@
 const Discord = require("discord.js");
 const morning = require("../data/price_am.json");
 const afternoon = require("../data/price_pm.json");
-
+const getDate = require("../utils/getDate");
 /**
  * Attempt to the load the morning values and afternoon values for the day.
  * @param {String} username - the name of user.
  */
 module.exports = loadWeek = (username) => {
-  const date = new Date();
+  const date = getDate(username);
   //can only be a value 0 - 6
   const day = date.getDay();
   const emedData = new Discord.MessageEmbed()

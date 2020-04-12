@@ -11,6 +11,7 @@ module.exports = {
   description:
     "Usage: `!buy number`, e.g. `!buy 50`\n This is the buy value you purchased the turnips at.\n If current day is not Sunday, it will update the value of the last Sunday",
   execute(message, args) {
+    const username = message.author.username.slice(0, 5);
     //price cannot be a negative value, and must be a number.
     let price = parseInt(args[0]); //price should be second parameter.
     if (isNaN(price) || price <= 0)

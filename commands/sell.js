@@ -13,6 +13,7 @@ module.exports = {
   description:
     "Usage: `!sell am|pm number`, e.g. `!sell am 50`\n Price adds the current retail price value, use either am or pm to denote if the sell price represented is in the morning or afternoon.\n Price cannot be executed on Sundays, since you cannot sell on this day.",
   execute(message, args) {
+    const username = message.author.username.slice(0, 5);
     //first argument has to be a time of day.
     const timeOfDay = args[0].toLowerCase();
     if (timeOfDay !== "am" && timeOfDay !== "pm")

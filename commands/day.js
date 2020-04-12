@@ -1,4 +1,6 @@
+const getDate = require("../utils/getDate");
 /**
+ *
  * Gets the current day, used to indicate what day the bot is on.
  */
 module.exports = {
@@ -6,6 +8,7 @@ module.exports = {
   description: "*Usage: `!day`\nGets the current day the bot is on..*",
   args: false,
   execute(message, args) {
-    message.channel.send(new Date().toDateString());
+    const username = message.author.username.slice(0, 5);
+    message.channel.send(getDate(username).toDateString());
   },
 };

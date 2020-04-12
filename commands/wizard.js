@@ -3,6 +3,7 @@ const loadSpecificDay = require("../utils/loadSpecificDayTime");
 const morning = require("../data/price_am.json");
 const afternoon = require("../data/price_pm.json");
 const Discord = require("discord.js");
+const getDate = require("../utils/getDate");
 module.exports = {
   name: "wizard",
   description:
@@ -15,7 +16,7 @@ module.exports = {
       .setColor("#00FF00")
       .setAuthor("Stalk Market Price Predictation Wizard");
 
-    const date = new Date();
+    const date = getDate(username);
     const day = date.getDay();
     const json = {};
 

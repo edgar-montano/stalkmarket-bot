@@ -5,6 +5,7 @@ const getProfit = require("../utils/getProfit");
 const morning = require("../data/price_am.json");
 const afternoon = require("../data/price_pm.json");
 const getArrow = require("../utils/getArrow");
+const getDate = require("../utils/getDate");
 module.exports = {
   name: "listprofits",
   description:
@@ -14,8 +15,8 @@ module.exports = {
     const embedData = new Discord.MessageEmbed()
       .setColor("#6969ff")
       .setTitle("List of all the profits by percentage.");
-
-    const date = new Date();
+    const username = message.author.username.slice(0, 5);
+    const date = getDate(username);
     const day = date.getDay();
 
     let weekDays = Object.keys(morning);
