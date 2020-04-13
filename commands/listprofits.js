@@ -18,7 +18,7 @@ module.exports = {
       .setTitle("List of all the profits by percentage.");
     const name = message.author.username.slice(0, 5);
     const date = getDate(name);
-    const day = date.getDay() !== 0 ? day.getDay() : 7;
+    const day = date.getDay() !== 0 ? date.getDay() : 7;
 
     let weekDays = Object.keys(morning);
     let totalDays = weekDays.slice(-day);
