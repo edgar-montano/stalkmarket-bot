@@ -9,7 +9,7 @@ const getDate = require("../utils/getDate");
 module.exports = loadWeek = (username) => {
   const date = getDate(username);
   //can only be a value 0 - 6
-  const day = date.getDay() !== 0 ? day.getDay() : 7;
+  const day = date.getDay() !== 0 ? date.getDay() : 7;
   console.log(`Load week ${date} ${day}`);
   const emedData = new Discord.MessageEmbed()
     .setColor("#0099ff")
