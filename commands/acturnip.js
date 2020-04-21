@@ -76,14 +76,17 @@ module.exports = {
     ];
     // let link =
     //   "https://ac-turnip.com/#69,50,51,60,61,70,71,80,81,90,91,100,101";
-    let links = `https://ac-turnip.com/#${cost[getLastSunday()][username]},`;
+    //let links = `https://ac-turnip.com/#${cost[getLastSunday()][username]},`;
+    let links = `https://ac-turnip.com/share?f=${cost[getLastSunday()][username]}-`;
     for (let index = 0; index < values.length; index++) {
       if (json.hasOwnProperty(values[index]) && values[index] !== "satpm")
-        links = links + json[values[index]] + ",";
+        links = links + json[values[index]] + "-";
       else if (json.hasOwnProperty(values[index]) && values[index] === "satpm")
         links = links + json[values[index]];
-      else links = links + ",";
+      else links = links + "-";
     }
+
+	links += "";
 
     (async () => {
       // 1. Launch the browser
@@ -106,7 +109,6 @@ module.exports = {
       await page.screenshot({
         path: pathName,
       });
-
       await browser.close();
       console.log(pathName, json);
       embedData.attachFiles(pathName);
